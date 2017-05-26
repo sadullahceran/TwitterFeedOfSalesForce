@@ -2,6 +2,9 @@
 
 namespace TwitterFeedOfSalesForce.Helpers
 {
+    /// <summary>
+    /// Helps reading from config.
+    /// </summary>
     public class ConfigManager
     {
         private static ConfigManager _instance;

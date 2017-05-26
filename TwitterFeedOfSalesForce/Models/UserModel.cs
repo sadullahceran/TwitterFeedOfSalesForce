@@ -1,5 +1,8 @@
 ﻿namespace TwitterFeedOfSalesForce.Models
 {
+    /// <summary>
+    /// Holds profile information about a twitter user.
+    /// </summary>
     public class UserModel
     {
         public string ProfileImage { get; set; }

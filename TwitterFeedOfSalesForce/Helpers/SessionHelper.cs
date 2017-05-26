@@ -3,6 +3,9 @@ using LinqToTwitter;
 
 namespace TwitterFeedOfSalesForce.Helpers
 {
+    /// <summary>
+    /// Data to be kept in session is managed here
+    /// </summary>
     public class SessionHelper
     {
         public static ICredentialStore TwitterAuth

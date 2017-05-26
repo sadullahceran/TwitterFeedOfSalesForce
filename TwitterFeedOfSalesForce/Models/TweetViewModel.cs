@@ -2,6 +2,9 @@
 
 namespace TwitterFeedOfSalesForce.Models
 {
+    /// <summary>
+    /// Model used to display tweets of any screenname
+    /// </summary>
     public class TweetModel
     {
         public string Username { get; set; }

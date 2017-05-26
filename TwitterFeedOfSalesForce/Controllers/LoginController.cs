@@ -6,16 +6,20 @@ namespace TwitterFeedOfSalesForce.Controllers
 {
     public class LoginController : Controller
     {
-        //
-        // GET: /Login/
+        /// <summary>
+        /// If user is not logged in, open login view
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
-        //
-        // GET: /Login/
+        /// <summary>
+        /// Logs out current user
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult Logout()
         {
@@ -23,6 +27,11 @@ namespace TwitterFeedOfSalesForce.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Check for username - password entered. 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Index(LoginViewModel model)
         {
@@ -30,6 +39,8 @@ namespace TwitterFeedOfSalesForce.Controllers
             {
                 var configManager = ConfigManager.Instance;
 
+                // For the sake of simplicity, config based username - pass pair is defined.
+                // @TODO Should be moved to DB or different data source.
                 if (model.Username == configManager.DefaultUsername && model.Password == configManager.DefaultPassword)
                 {
                     SessionHelper.IsAuthenticated = true;

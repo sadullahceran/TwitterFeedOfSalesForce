@@ -13,6 +13,10 @@ namespace TwitterFeedOfSalesForce.Controllers
         //
         // GET: /Home/
 
+        /// <summary>
+        /// Main page. If user authorized the app, their profile info will be shown.
+        /// </summary>
+        /// <returns></returns>
         public async Task<ViewResult> Index()
         {
             if (SessionHelper.TwitterAuth == null)
@@ -20,10 +24,12 @@ namespace TwitterFeedOfSalesForce.Controllers
                 return View((object) null);
             }
 
+            // Get twitter user id
             var userId = SessionHelper.TwitterAuth.UserID;
 
             var context = await GetTwitterContext();
 
+            // Get twitter user detail
             var userInfoList =
                 await (
                     from user in context.User
@@ -37,7 +43,8 @@ namespace TwitterFeedOfSalesForce.Controllers
             {
                 return View((object) null);
             }
-
+            // Convert twitter user detail to custom model.
+            // @TODO: FeedController uses the same code, refactoring should be made.
             var model = new UserModel
             {
                 ProfileImage = userInfo.ProfileImageUrl,

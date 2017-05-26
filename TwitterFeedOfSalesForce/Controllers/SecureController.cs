@@ -8,9 +8,10 @@ namespace TwitterFeedOfSalesForce.Controllers
     [AuthorizeUser]
     public class SecureController : Controller
     {
-        //
-        // GET: /Home/
-
+        /// <summary>
+        /// This base class makes it easy for other controllers to access twitter context.
+        /// </summary>
+        /// <returns></returns>
         protected async Task<TwitterContext> GetTwitterContext()
         {
             IAuthorizer auth = null;

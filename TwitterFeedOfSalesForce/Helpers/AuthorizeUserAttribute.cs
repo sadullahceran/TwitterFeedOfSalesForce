@@ -4,6 +4,10 @@ using System.Web.Routing;
 
 namespace TwitterFeedOfSalesForce.Helpers
 {
+    /// <summary>
+    /// This attribute is used to secure controllers and actions.
+    /// Only logged in users will be accepted by this.
+    /// </summary>
     public class AuthorizeUserAttribute : AuthorizeAttribute
     {
         protected override bool AuthorizeCore(HttpContextBase httpContext)
@@ -15,6 +19,9 @@ namespace TwitterFeedOfSalesForce.Helpers
             return false;
         }
 
+        /// <summary>
+        /// If user not authorized, redirect them to Login page.
+        /// </summary>
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
             filterContext.Result = new RedirectToRouteResult(
