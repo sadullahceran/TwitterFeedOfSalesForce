@@ -61,3 +61,9 @@ C:\Users\user\Documents\GitHub\TwitterFeedOfSalesForce\TwitterFeedOfSalesForce\b
 C:\Users\user\Documents\GitHub\TwitterFeedOfSalesForce\TwitterFeedOfSalesForce\obj\Debug\TwitterFeedOfSalesForce.csprojResolveAssemblyReference.cache
 C:\Users\user\Documents\GitHub\TwitterFeedOfSalesForce\TwitterFeedOfSalesForce\obj\Debug\TwitterFeedOfSalesForce.dll
 C:\Users\user\Documents\GitHub\TwitterFeedOfSalesForce\TwitterFeedOfSalesForce\obj\Debug\TwitterFeedOfSalesForce.pdb
+C:\Users\user\Documents\GitHub\TwitterFeedOfSalesForce\TwitterFeedOfSalesForce\bin\System.Web.Http.WebHost.dll
+C:\Users\user\Documents\GitHub\TwitterFeedOfSalesForce\TwitterFeedOfSalesForce\bin\System.Web.Http.WebHost.xml
+C:\Users\user\Documents\GitHub\TwitterFeedOfSalesForce\TwitterFeedOfSalesForce\bin\System.Web.Http.dll
+C:\Users\user\Documents\GitHub\TwitterFeedOfSalesForce\TwitterFeedOfSalesForce\bin\System.Web.Http.xml
+C:\Users\user\Documents\GitHub\TwitterFeedOfSalesForce\TwitterFeedOfSalesForce\bin\System.Net.Http.Formatting.dll
+C:\Users\user\Documents\GitHub\TwitterFeedOfSalesForce\TwitterFeedOfSalesForce\bin\System.Net.Http.Formatting.xml
