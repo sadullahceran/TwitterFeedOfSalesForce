@@ -1,0 +1,41 @@
+﻿@model List<TwitterFeedOfSalesForce.Models.TweetModel>
+@foreach (var tweet in Model)
+{
+    <tr class="tweet">
+        <td>
+            <div class="slds-grid">
+                <div style="min-width: 52px!important;">
+                    <div class="slds-media slds-no-space slds-grow">
+                        <div class="slds-media__figure">
+                            <img src="@tweet.ProfileImageUrl" />
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="slds-text-align-left">
+                        <a href="@tweet.Link" target="_blank">
+                            <span class="slds-text-color--default">
+                                @tweet.Username
+                            </span>
+                            <span class="slds-text-color--weak">(@@@tweet.ScreenName)</span>
+                            <span class="slds-text-color--inverse-weak">@tweet.Timestamp.ToString("dd MMM HH:mm")</span>
+                            -
+                            <span class="slds-text-color--inverse-weak">Retweeted @tweet.RetweetCount times</span>
+                        </a>
+                    </div>
+
+                    <div>
+                        <span style="white-space: normal;" class="tweet-text">@tweet.Text</span>
+                    </div>
+                    @if (tweet.ImageUrl != null)
+                    {
+                        <div>
+                            <img src="@tweet.ImageUrl" style="max-width: 480px;" />
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </td>
+    </tr>
+}

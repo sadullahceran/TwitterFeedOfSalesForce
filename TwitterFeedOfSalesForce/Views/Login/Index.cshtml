@@ -1,0 +1,43 @@
+﻿@model TwitterFeedOfSalesForce.Models.LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Login | Salesforce Twitter Feed</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/assets/styles/salesforce-lightning-design-system.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/assets/styles/Site.css")" />
+</head>
+<body>
+    <div class="slds-scope">
+        <div class="slds-box form-signin">
+            @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+            {
+
+                <div class="slds-text-body_regular">Please sign in to check out Salesforce Twitter Feed.</div>
+                <br />
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="username">Username</label>
+                    <div class="slds-form-element__control">
+                        @Html.TextBoxFor(m => m.Username, new { @class = "slds-input" })
+                    </div>
+                </div>
+
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="password">Password</label>
+                    <div class="slds-form-element__control">
+                        @Html.PasswordFor(m => m.Password, new { @class = "slds-input" })
+                    </div>
+                </div>
+                if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="slds-text-color_error">@Html.ValidationMessage("")</div>
+                }
+                <button class="slds-button" name="Submit" value="Login" type="Submit">Login</button>
+            }
+        </div>
+    </div>
+</body>
+</html>

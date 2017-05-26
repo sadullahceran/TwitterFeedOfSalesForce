@@ -1,0 +1,132 @@
+﻿@model TwitterFeedOfSalesForce.Models.UserModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Home | Salesforce Twitter Feed</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/assets/styles/salesforce-lightning-design-system.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/assets/styles/Site.css")" />
+</head>
+<body>
+    <div class="container">
+        <div class="slds-scope">
+            <p class="slds-text-heading--label slds-m-bottom--small">Salesforce Twitter Feed</p>
+
+            @{
+            }
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate">
+                        <div class="slds-media slds-no-space slds-grow">
+                            <div class="slds-media__figure">
+                                @if (Model == null)
+                                {
+                                    <svg aria-hidden="true" class="slds-icon slds-icon-standard-user">
+                                        <use xlink:href="@Url.Content("~/assets/icons/standard-sprite/svg/symbols.svg#user")"></use>
+                                    </svg>
+                                }
+                                else
+                                {
+                                    <img src="@Model.ProfileImage" />
+                                }
+                            </div>
+
+                            @if (Model == null)
+                            {
+                                <div class="slds-media__body">
+                                    <p class="slds-text-title--caps slds-line-height--reset">User</p>
+                                    <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="Not connected to twitter.">Not connected to twitter.</h1>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="slds-media__body">
+                                    <p class="slds-text-title--caps slds-line-height--reset">@Model.FullName (@@@Model.ScreenName)</p>
+                                    <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="@Model.Description">@Model.Description</h1>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    @if (Model == null)
+                    {
+                        <div class="slds-col slds-no-flex slds-grid slds-align-top">
+                            <button class="slds-button slds-button--neutral" onclick="location.href='@Url.Action("BeginAuthorization","Feed")'">Connect To Twitter</button>
+                        </div>
+                    }
+                </div>
+            </div>
+            <ul class="slds-grid slds-page-header__detail-row"></ul>
+            <article class="slds-card">
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2>
+                                How to Use
+                            </h2>
+                        </div>
+                    </header>
+                </div>
+                <div class="slds-card__body slds-card__body_inner">This web application enables visitors to list twitter timeline of @@salesforce account. Authentication is not necessary. Without authorizing this application, user is able to see public tweets by @@salesforce. However, after connecting to the Twitter and authorizing the app, users can see protected tweets and content tailored for their account.</div>
+            </article>
+
+            <article class="slds-m-top_large">
+                <table class="slds-table slds-table_bordered slds-table_fixed-layout">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th>
+                                <div id="salesforceProfile">
+                                    <div style="height: 130px;">
+                                        <div role="status" class="slds-spinner slds-spinner_medium">
+                                            <span class="slds-assistive-text">Loading</span>
+                                            <div class="slds-spinner__dot-a"></div>
+                                            <div class="slds-spinner__dot-b"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" slds-box">
+                                    <form id="frmSearch">
+                                        <label class="slds-form-element__label" for="txtSearch">Search</label>
+                                        <div class="slds-grid">
+                                            <div class="slds-col slds-size--6-of-8">
+                                                <div class="slds-form-element">
+                                                    <div class="slds-form-element__control">
+                                                        <input type="text" placeholder="Enter your search term" class="slds-input" id="txtSearch" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slds-col slds-size--2-of-8">
+                                                <button class="slds-button slds-button--neutral" id="btnSearch" type="submit">Search</button>
+                                                <button class="slds-button slds-button--neutral" id="btnClear" type="button">Clear</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tweets"></tbody>
+                </table>
+            </article>
+
+            <!-- FOOTER -->
+            <footer role="contentinfo" class="slds-p-around--large">
+                <!-- LAYOUT GRID -->
+                <div class="slds-grid slds-grid--align-spread">
+                    <p class="slds-col">Salesforce Twitter Feed - Test Project</p>
+                    <p class="slds-col">&copy; <a href="mailto:sadullahceran@gmail.com">Sadullah Ceran</a></p>
+                </div>
+                <!-- / LAYOUT GRID -->
+            </footer>
+            <!-- / FOOTER -->
+        </div>
+        <!-- / REQUIRED SLDS WRAPPER -->
+        <!-- JAVASCRIPT -->
+        <!-- / JAVASCRIPT -->
+        <script type="text/javascript" language="javascript">
+        var baseUrl = '@Url.Content("~/")';
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="@Url.Content("~/js/Site.js")"></script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿@model TwitterFeedOfSalesForce.Models.UserModel
+
+@if (Model != null)
+{
+    <div class="slds-grid slds-box">
+        <div class="slds-col slds-has-flexi-truncate">
+            <div class="slds-media slds-no-space slds-grow">
+                <div class="slds-media__figure">
+                    <img src="@Model.ProfileImage" />
+                </div>
+                <div class="slds-media__body">
+                    <p class="slds-text-heading--large slds-line-height--reset">
+                        <a href="@Model.Link">@Model.ScreenName</a>
+                    </p>
+                    <h1 class="slds-m-right--small slds-align-middle slds-truncate" title="Twitter Descriptoio">@Model.Description</h1>
+                </div>
+            </div>
+
+            <ul class="slds-grid">
+
+                <li class="slds-page-header__detail-block">
+                    <p class="slds-text-title slds-truncate slds-m-bottom--xx-small" title="Tweets">Tweets</p>
+                    <p class="slds-text-body--regular slds-truncate" title="@string.Format("{0:n0}", @Model.TweetCount);">@string.Format("{0:n0}", @Model.TweetCount)</p>
+                </li>
+                <li class="slds-page-header__detail-block">
+                    <p class="slds-text-title slds-truncate slds-m-bottom--xx-small" title="Tweets">Followers</p>
+                    <p class="slds-text-body--regular slds-truncate" title="@string.Format("{0:n0}", @Model.FollowerCount);">@string.Format("{0:n0}", @Model.FollowerCount)</p>
+                </li>
+                <li class="slds-page-header__detail-block">
+                    <p class="slds-text-title slds-truncate slds-m-bottom--xx-small" title="Tweets">Following</p>
+                    <p class="slds-text-body--regular slds-truncate" title="@string.Format("{0:n0}", @Model.FollowingCount);">@string.Format("{0:n0}", @Model.FollowingCount)</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+}
